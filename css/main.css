@@ -1,0 +1,33 @@
+
+* {
+    box-sizing: border-box;
+}
+h1 {
+    font-size: 75px;
+    text-align: center;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+.keyboard {
+    font-size: 42px;
+}
+
+.image {
+    display: flex;
+        justify-content: center;
+}
+img {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+}
+h3 {
+font-size: 100px;
+text-align: center;
+}
+
+p {
+    text-align: center;
+}
