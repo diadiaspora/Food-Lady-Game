@@ -19,8 +19,8 @@
 const letters = document.querySelectorAll(".letters");
 console.log(letters);
 
-const wordChoices = ['pineapple', 'barbeque', 'cheesecake', 'lasagna', 'pepperoni', 'cucumber', 
-'granola', 'bananas', 'strawberries', 'sandwich'
+const wordChoices = ['PINEAPPLE', 'BARBEQUE', 'CHEESECAKE', 'LASANGA', 'PEPPERONI', 'CUCUMBER', 
+'GRANOLA', 'BANANAS', 'STRAWBERRIES', 'SANDWICH'
 ];
 //an array of your 10 words to guess.
 console.log(wordChoices);
@@ -62,7 +62,12 @@ console.log(buttons);
 const wordDisplay = document.querySelector(".placeholder");
 
 
-const choose = document.querySelector(".choose-word");
+
+const chooseWord = document.querySelector(".choose-word");
+console.log(chooseWord);
+
+selectWord = getRandomWord(wordChoices);
+console.log(selectWord);
 
 
 
@@ -77,9 +82,39 @@ letters.forEach((letter) => {
     });
 });
 
+chooseWord.addEventListener("click", () => {
+
+    // const selection = "hello";
+    // console.log(selection);
+    //  const selection = getRandomWord(wordChoices);
+    // wordDisplay.innerText = selectWord;
+    // for (let repeat = 0; repeat < 10; repeat++) {
+    // const randomWord = array[selection];
+    // wordDisplay.innerText = randomWord;
+    wordDisplay.innerText = selectWord;
+//     console.dir(selectWord);
+// }
+
+});
+
+// for (let repeat = 1; repeat < 10; repeat++) {
+//     wordDisplay.innerText = selectWord;
+// }
+
+// if there is a word then repeat the function
 
 
+// for (let i = 1; i < 10; i++) {
+//   console.log(i);
+// }
 
+// for (let number = 1; number < 10; number++) {
+//   console.log(number);
+// }
+
+// for (let day = 1; day <= 7; day++) {
+//   console.log(`Day ${day} of the week`);
+// }
 /*----- functions -----*/
 
 // init() — starts or resets the game.
@@ -112,7 +147,11 @@ function getRandomWord(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 console.log(getRandomWord(wordChoices));
-getRandomWord(wordChoices);
+
+
+
+
+
 
 // function namey(one, two) {
 //     return one + two
