@@ -32,7 +32,7 @@ const wordChoices = [
     ['C','O','C','O','N','U','T']
 ];
 //an array of your 10 words to guess.
-console.log(wordChoices);
+
 
 const maxGuesses = 10;
 
@@ -47,6 +47,8 @@ console.log(maxGuesses);
  let wrongGuesses
  let gameOver 
 
+ let ltr0 = "_";
+
  let ltr1 = "_";
 
  let ltr2 = "_";
@@ -56,9 +58,7 @@ console.log(maxGuesses);
  let ltr4 = "_";
 
  let ltr5 = "_";
-
  let ltr6 = "_";
- let ltr7 = "_";
 
  
 let oper = "";
@@ -85,13 +85,15 @@ console.log(buttons);
 
 const wordDisplay = document.querySelector(".placeholder");
 
- wordDisplay.innerText = (ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7);
+ wordDisplay.innerText = (ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6);
 
 
 const chooseWord = document.querySelector(".choose-word");
 console.log(chooseWord);
 
-selectWord = getRandomWord(wordChoices);
+let selectWord = getRandomWord(wordChoices);
+
+
 
 
 
@@ -106,37 +108,35 @@ selectWord = getRandomWord(wordChoices);
 //  }
 
 //LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
+chooseWord.addEventListener("click", () => {
+  let selectWord = getRandomWord(wordChoices);
+  wordDisplay.innerText = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
+  console.log(selectWord);
+});
 
 
 letters.forEach((letter) => {
-  letter.addEventListener("click", (typing) => {
-    const value = typing.target.innerText;
+  letter.addEventListener("click", (evt) => {
+    console.log(selectWord);
+    ltr1 = selectWord[0];
+    ltr2 =selectWord[1];
+    ltr3 =selectWord[2];
+    ltr4 =selectWord[3];
+    ltr5 =selectWord[4];
+    ltr6 =selectWord[5];
+    ltr7 =selectWord[6];
     
-    
-//   wordDisplay.innerText = ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7;
-
-//   ltr1 = value;
-//   ltr2 = value;
-//   ltr3 = value;
-//   ltr4 = value;
-//   ltr5 = value;
-//   ltr6 = value;
-//   ltr7 = value;
-
-
-    //wordDisplay.innerText = value;
-
-
+    // if (selectWord.includes(evt.target.innerText)) {
+    //     console.log(selectWord);
+    // };
+    // const value = evt.target.innerText;
+    // wordDisplay.innerText = value;
   });
 });
 
-chooseWord.addEventListener("click", () => {
+// handle select letter
 
-    //wordDisplay.innerText = selectWord;
 
-// }
-
-});
 
 // for (let repeat = 1; repeat < 10; repeat++) {
 //     wordDisplay.innerText = selectWord;
@@ -189,10 +189,10 @@ chooseWord.addEventListener("click", () => {
 
 
 function getRandomWord(array) {
-  console.log(array);
+
   return array[Math.floor(Math.random() * array.length)];
 }
-console.log(getRandomWord(wordChoices));
+
 
 
 
