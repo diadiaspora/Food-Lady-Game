@@ -19,8 +19,8 @@
 const letters = document.querySelectorAll(".letters");
 console.log(letters);
 
-const wordChoices = ['PINEAPPLE', 'BARBEQUE', 'CHEESECAKE', 'LASANGA', 'PEPPERONI', 'CUCUMBER', 
-'GRANOLA', 'BANANAS', 'STRAWBERRIES', 'SANDWICH'
+const wordChoices = ['BURRITO', 'MUFFINS', 'POPCORN', 'LASANGA', 'ALMONDS', 'HOTDOGS', 
+'GRANOLA', 'BANANAS', 'CUPCAKE', 'COCONUT'
 ];
 //an array of your 10 words to guess.
 console.log(wordChoices);
@@ -38,6 +38,21 @@ console.log(maxGuesses);
  let wrongGuesses
  let gameOver 
 
+ let ltr1 = "_";
+
+ let ltr2 = "_";
+
+ let ltr3 = "_";
+
+ let ltr4 = "_";
+
+ let ltr5 = "_";
+
+ let ltr6 = "_";
+ let ltr7 = "_";
+
+ 
+let oper = "";
 // secretWord — the current word the player is trying to guess.
 
 //  guessedLetters — an array of letters the player has guessed.
@@ -61,6 +76,7 @@ console.log(buttons);
 
 const wordDisplay = document.querySelector(".placeholder");
 
+ wordDisplay.innerText = (ltr1 + spc1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7);
 
 
 const chooseWord = document.querySelector(".choose-word");
@@ -73,26 +89,25 @@ console.log(selectWord);
 
 /*----- event listeners -----*/
 
+
 //LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
 
 letters.forEach((letter) => {
-    letter.addEventListener("click", (typing) => {
-       const typedLetter = typing.target.innerText;
-       console.log(typedLetter);
-    });
+  letter.addEventListener("click", (typing) => {
+    const value = typing.target.innerText;
+       
+        //   ltr1 += value;
+        //   wordDisplay.innerText = ltr1;
+      
+    //wordDisplay.innerText = value;
+
+  });
 });
 
 chooseWord.addEventListener("click", () => {
 
-    // const selection = "hello";
-    // console.log(selection);
-    //  const selection = getRandomWord(wordChoices);
-    // wordDisplay.innerText = selectWord;
-    // for (let repeat = 0; repeat < 10; repeat++) {
-    // const randomWord = array[selection];
-    // wordDisplay.innerText = randomWord;
-    wordDisplay.innerText = selectWord;
-//     console.dir(selectWord);
+    //wordDisplay.innerText = selectWord;
+
 // }
 
 });
@@ -117,7 +132,12 @@ chooseWord.addEventListener("click", () => {
 // }
 /*----- functions -----*/
 
+
+
 // init() — starts or resets the game.
+
+// function init(
+// ) 
 
 // renderWord() — updates the underscores and guessed letters in the UI.
 
@@ -168,3 +188,4 @@ console.log(getRandomWord(wordChoices));
 // };
 
 // console.log(init);
+
