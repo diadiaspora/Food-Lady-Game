@@ -19,8 +19,17 @@
 const letters = document.querySelectorAll(".letters");
 console.log(letters);
 
-const wordChoices = ['BURRITO', 'MUFFINS', 'POPCORN', 'LASANGA', 'ALMONDS', 'HOTDOGS', 
-'GRANOLA', 'BANANAS', 'CUPCAKE', 'COCONUT'
+const wordChoices = [
+    ['B','U', 'R','R','I','T','O'], 
+    ['M','U','F','F','I','N','S'], 
+    ['P','O','P','C','O','R','N'], 
+    ['L','A','S','A','N','G', 'A'], 
+    ['A','L', 'M','O','N','D','S'], 
+    ['H','O','T','D','O','G','S'], 
+    ['G','R','A','N','O','L','A'],  
+    ['B','A','N','A','N','A','S'], 
+    ['C','U','P','C','A','K','E'],
+    ['C','O','C','O','N','U','T']
 ];
 //an array of your 10 words to guess.
 console.log(wordChoices);
@@ -76,30 +85,47 @@ console.log(buttons);
 
 const wordDisplay = document.querySelector(".placeholder");
 
- wordDisplay.innerText = (ltr1 + spc1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7);
+ wordDisplay.innerText = (ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7);
 
 
 const chooseWord = document.querySelector(".choose-word");
 console.log(chooseWord);
 
 selectWord = getRandomWord(wordChoices);
-console.log(selectWord);
+
 
 
 
 /*----- event listeners -----*/
-
+//  if (oper === "") {
+//    num1 += value;
+//    display.innerText = num1;
+//  } else {
+//    num2 += value;
+//    display.innerText += value;
+//  }
 
 //LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
+
 
 letters.forEach((letter) => {
   letter.addEventListener("click", (typing) => {
     const value = typing.target.innerText;
-       
-        //   ltr1 += value;
-        //   wordDisplay.innerText = ltr1;
-      
+    
+    
+//   wordDisplay.innerText = ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6 + ltr7;
+
+//   ltr1 = value;
+//   ltr2 = value;
+//   ltr3 = value;
+//   ltr4 = value;
+//   ltr5 = value;
+//   ltr6 = value;
+//   ltr7 = value;
+
+
     //wordDisplay.innerText = value;
+
 
   });
 });
