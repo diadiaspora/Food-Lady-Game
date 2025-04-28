@@ -16,6 +16,9 @@
 
                                 /*----- constants -----*/
 
+const letters = document.querySelectorAll(".letters");
+console.log(letters);
+
 const wordChoices = ['pineapple', 'barbeque', 'cheesecake', 'lasagna', 'pepperoni', 'cucumber', 
 'granola', 'bananas', 'strawberries', 'sandwich'
 ];
@@ -57,9 +60,23 @@ const buttons = document.querySelectorAll(".keyboard");
 console.log(buttons);
 
 const wordDisplay = document.querySelector(".placeholder");
-console.log(".placeholder");
+
+
+const choose = document.querySelector(".choose-word");
+
+
 
 /*----- event listeners -----*/
+
+//LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
+
+letters.forEach((letter) => {
+    letter.addEventListener("click", (typing) => {
+       const typedLetter = typing.target.innerText;
+       console.log(typedLetter);
+    });
+});
+
 
 
 
@@ -87,10 +104,12 @@ console.log(".placeholder");
 
 // disableButton(button) — disables a letter button after clicking.
 
+
+
+
 function getRandomWord(array) {
-    console.log(array);
-    return array[Math.floor(Math.random() * array.length)];
-   
+  console.log(array);
+  return array[Math.floor(Math.random() * array.length)];
 }
 console.log(getRandomWord(wordChoices));
 getRandomWord(wordChoices);
