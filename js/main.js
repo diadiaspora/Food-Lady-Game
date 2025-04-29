@@ -49,19 +49,19 @@ const wordChoices = [
 //an array of your 10 words to guess.
 
 
-const maxGuesses = 10;
 
-console.log(maxGuesses);
+
+
 //MAX_GUESSES — (optional) how many wrong guesses are allowed.
 
 
                                     /*----- state variables -----*/
 
- let secretWord 
+ let selectWord 
  let correctGuesses
  let wrongGuesses
- let gameOver 
- let win
+ let gameOver = false;
+ let maxGuesses = 10;
 
 //  let ltr0 = "_";
 
@@ -98,7 +98,7 @@ console.log(maxGuesses);
 
 
 
-let selectWord = getRandomWord(wordChoices);
+selectWord = getRandomWord(wordChoices);
 console.log(selectWord);
 
 
@@ -118,23 +118,43 @@ console.log(selectWord);
 //LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
 chooseWord.addEventListener("click", getStarted);
 
-function getStarted() {
-    wordDisplay.replaceChildren()
-selectWord = getRandomWord(wordChoices);
-    const selectedWordArray = selectWord.split('');
-    console.log(selectedWordArray);
+// ---original
+// function getStarted() {
+//     wordDisplay.replaceChildren()
+// selectWord = getRandomWord(wordChoices);
+//     const selectedWordArray = selectWord.split('');
+//     console.log(selectedWordArray);
     
-    selectedWordArray.forEach((ltr) => {
-        console.log(ltr);
-    const ltrContainer = document.createElement("div");
-    ltrContainer.innerText = "_";
-    wordDisplay.appendChild(ltrContainer);
-   })
+//     selectedWordArray.forEach((ltr) => {
+//         console.log(ltr);
+//     const ltrContainer = document.createElement("div");
+//     ltrContainer.innerText = "_";
+//     wordDisplay.appendChild(ltrContainer);
+//    })
 
-   console.log(wordDisplay);
+//    console.log(wordDisplay);
 
-  console.log(selectWord.toUpperCase());
-};
+//   console.log(selectWord.toUpperCase());
+// };
+
+// ---redo
+function getStarted() {
+  wordDisplay.innerText = ""; // Clear previous letters
+  selectWord = getRandomWord(wordChoices);
+  displayedLettersArray = Array(selectWord.length).fill("_"); // Initialize with underscores
+  correctGuesses = [];
+  wrongGuesses = [];
+  gameOver = false;
+
+  updateWordDisplay(); // Initial display
+
+  buttons.forEach((button) => {
+    button.disabled = false;
+    button.classList.remove("correct", "incorrect");
+  });
+
+  console.log("Secret Word:", selectWord);
+}
 
 // function matchLetters() {
 //   letters.forEach((letter) => {
@@ -144,6 +164,11 @@ selectWord = getRandomWord(wordChoices);
 //     console.log(targetLetters);
 //   });
 // }
+buttons.forEach((button) => {
+  button.addEventListener("click", handleGuess);
+});
+
+chooseWord.addEventListener("click", getStarted);
 
 // This code sets up an event listener so that when someone clicks a button or element called chooseWord, it runs the function getStarted() to begin a game (likely Hangman or a word guessing game).
 
@@ -362,12 +387,57 @@ function init(){
 
 
 function getRandomWord(array) {
-
   return array[Math.floor(Math.random() * array.length)];
 }
 
+function updateWordDisplay() {
+  wordDisplay.innerText = displayedLettersArray.join(" "); // Join the array with spaces
+}
 
+function handleGuess(event) {
+  if (gameOver) return;
 
+  const guessedLetter = event.target.innerText.toUpperCase();
+  event.target.disabled = true;
+
+  if (selectWord.includes(guessedLetter)) {
+    if (!correctGuesses.includes(guessedLetter)) {
+      correctGuesses.push(guessedLetter);
+      for (let i = 0; i < selectWord.length; i++) {
+        if (selectWord[i] === guessedLetter) {
+          displayedLettersArray[i] = guessedLetter;
+        }
+      }
+      updateWordDisplay();
+
+      if (!displayedLettersArray.includes("_")) {
+        gameOver = true;
+        console.log("You win!");
+        // Handle win display
+      }
+      event.target.classList.add("correct");
+    }
+  } else {
+    if (!wrongGuesses.includes(guessedLetter)) {
+      wrongGuesses.push(guessedLetter);
+      console.log("Wrong Guesses:", wrongGuesses);
+      // Update hangman drawing or remaining guesses count here
+
+      if (wrongGuesses.length >= maxGuesses) {
+        gameOver = true;
+        console.log("Game Over! The word was:", selectWord);
+        updateWordDisplay(); // Show the underscores as they were
+        // Optionally reveal the word:
+        // wordDisplay.innerText = selectWord.split('').join(' ');
+      }
+      event.target.classList.add("incorrect");
+    }
+  }
+}
+
+// function getRandomWord(arr) {
+//   return arr[Math.floor(Math.random() * arr.length)].toUpperCase();
+// }
 
 
 
