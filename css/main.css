@@ -143,55 +143,55 @@ p {
 
 } */
 
- .mac {
+ #mac {
     position: absolute;
     left: 30px;
     top: 500px;
     z-index: 0;
 }
 
-.fries {
+#fries {
     position: absolute;
         left: 30px;
         top: 1000px;
         z-index: 0;
     }
-.salad {
+#salad {
     position: absolute;
         left: 1300px;
         top: 500px;
         z-index: 0;
 }
 
-.peach {
+#peach {
     position: absolute;
         left: 1300px;
         top: 1000px;
         z-index: 0;
 }
 
-.kabob {
+#kabob {
 display: block;
     margin-left: auto;
     margin-right: auto;
     width: 400px;
 }
 
-.tacos {
+#tacos {
     width: 400px;
     margin-top: -80px;
 }
 
-.slaw {
+#slaw {
    
 }
 
-.chic{
+#chic{
     width: 400px;
     margin-top: 200px;
     margin-bottom: 0px;
 }
 
-.avoc{
+#avoc{
 
 }
