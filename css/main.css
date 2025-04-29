@@ -17,28 +17,39 @@ body {
 }
 header {
     grid-column: span 2;
+
 }
 
 .header {
     display: flex;
+    background-color: #FFF;
+        background-size: 100px 100px;
+        background-position: 0 0, 50px 50px;
+        background-image: linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047),
+            linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047);
+}
+
+.foodlady {
+    color: #FFD7E6;
+    background-color: #023047;
 }
 
 aside {
    
-    background-color: #38b18a;
+    background-color: #FFD7E6;
     border-radius: 150px;
 }
 
 main {
     margin-top: 40px;
     padding-top: 40px;
-    background-color: #92d97c;
+    background-color: #023047;
     border-radius: 150px;
 }
 
 
 h1 {
-    font-size: 75px;
+    font-size: 120px;
     text-align: center;
 }
  .keyboard {
@@ -55,7 +66,7 @@ h2 {
         margin-left: 40px;
 }
 .letters {
-    font-size: 42px;
+    font-size: 80px;
 }
 
 .image {
@@ -65,7 +76,7 @@ h2 {
 img {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 250px;
 }
 h3 {
 font-size: 100px;
@@ -84,14 +95,14 @@ p {
 .placeholder {
     display: flex;
     gap: 5px;
-    font-size: 42px;
+    font-size: 160px;
     justify-content: center;
 }
-.checkered3 {
-    background-color: #FFF;
+/* .checkered3 { */
+    /* background-color: #FFF;
     background-size:  100px 100px;
     background-position: 0 0, 50px 50px;
-    background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
-        linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+    background-image: linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047),
+        linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047);
 
-}
+} */
