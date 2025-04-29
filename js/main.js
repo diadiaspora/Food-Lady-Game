@@ -20,16 +20,16 @@ const letters = document.querySelectorAll(".letters");
 console.log(letters);
 
 const wordChoices = [
-    ['B','U', 'R','R','I','T','O'], 
-    ['M','U','F','F','I','N','S'], 
-    ['P','O','P','C','O','R','N'], 
-    ['L','A','S','A','N','G', 'A'], 
-    ['A','L', 'M','O','N','D','S'], 
-    ['H','O','T','D','O','G','S'], 
-    ['G','R','A','N','O','L','A'],  
-    ['B','A','N','A','N','A','S'], 
-    ['C','U','P','C','A','K','E'],
-    ['C','O','C','O','N','U','T']
+    'burrito',
+    'muffins',
+    'popcorn',
+    'LASANGA',
+    'ALMONDS',
+    'HOTDOGS',
+    'GRANOLA',
+    'BANANAS',
+    'CUPCAKE',
+    'COCONUT',
 ];
 //an array of your 10 words to guess.
 
@@ -61,7 +61,7 @@ console.log(maxGuesses);
  let ltr6 = "_";
 
  
-let oper = "";
+
 // secretWord — the current word the player is trying to guess.
 
 //  guessedLetters — an array of letters the player has guessed.
@@ -85,13 +85,14 @@ console.log(buttons);
 
 const wordDisplay = document.querySelector(".placeholder");
 
- wordDisplay.innerText = (ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6);
+//  wordDisplay.innerText = (ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6);
 
 
 const chooseWord = document.querySelector(".choose-word");
 console.log(chooseWord);
 
 let selectWord = getRandomWord(wordChoices);
+console.log(selectWord);
 
 
 
@@ -108,27 +109,51 @@ let selectWord = getRandomWord(wordChoices);
 //  }
 
 //LETTERS SHOW UP IN CONSOLE LOG WHEN CLICKED!!! 
-chooseWord.addEventListener("click", () => {
-  let selectWord = getRandomWord(wordChoices);
-  wordDisplay.innerText = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
-  console.log(selectWord);
-});
+chooseWord.addEventListener("click", getStarted);
 
+function getStarted() {
+    wordDisplay.replaceChildren()
+selectWord = getRandomWord(wordChoices);
+    const selectedWordArray = selectWord.split('');
+    console.log(selectedWordArray);
+    selectedWordArray.forEach((ltr) => {
+        console.log(ltr);
+    const ltrContainer = document.createElement("div");
+    ltrContainer.innerText = "_";
+    wordDisplay.appendChild(ltrContainer);
+   })
+
+   console.log(wordDisplay);
+//   wordDisplay.innerText = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
+  console.log(selectWord.toUpperCase());
+};
 
 letters.forEach((letter) => {
   letter.addEventListener("click", (evt) => {
     console.log(selectWord);
-    ltr1 = selectWord[0];
-    ltr2 =selectWord[1];
-    ltr3 =selectWord[2];
-    ltr4 =selectWord[3];
-    ltr5 =selectWord[4];
-    ltr6 =selectWord[5];
-    ltr7 =selectWord[6];
+    ltr0 = selectWord[0];
+    ltr1 = selectWord[1];
+    ltr2 = selectWord[2];
+    ltr3 = selectWord[3];
+    ltr4 = selectWord[4];
+    ltr5 = selectWord[5];
+    ltr6 = selectWord[6];
+
+    array = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
     
-    // if (selectWord.includes(evt.target.innerText)) {
-    //     console.log(selectWord);
-    // };
+    const value = evt.target.innerText;
+    if (selectWord.includes(evt.target.innerText)) {
+     console.log(true); 
+     console.log(array);
+     console.log(wordDisplay.innerText);
+
+    //  const arrays = wordChoices[].filter((elements) => {
+    //    return elements === value;
+    //  });
+    
+  };
+
+
     // const value = evt.target.innerText;
     // wordDisplay.innerText = value;
   });
@@ -156,7 +181,11 @@ letters.forEach((letter) => {
 // for (let day = 1; day <= 7; day++) {
 //   console.log(`Day ${day} of the week`);
 // }
-/*----- functions -----*/
+init();
+
+function init(){
+    getStarted();
+};
 
 
 
