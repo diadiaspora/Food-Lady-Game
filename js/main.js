@@ -123,6 +123,7 @@ function getStarted() {
 selectWord = getRandomWord(wordChoices);
     const selectedWordArray = selectWord.split('');
     console.log(selectedWordArray);
+    
     selectedWordArray.forEach((ltr) => {
         console.log(ltr);
     const ltrContainer = document.createElement("div");
@@ -188,36 +189,106 @@ selectWord = getRandomWord(wordChoices);
 
 // Prints the full selected word in uppercase in the console — also for debugging or testing.
 
+// letters.addEventListener("click", addLetters);
 
+// function addLetters() {
+//   console.log("hello");
+  
+
+  // console.log(selectWord);
+  // console.log(wordDisplay.innerText);
+  // // console.log(guessedLetter);
+  // console.log(targetLetters);
+  // console.log(underscores);
+// };
 letters.forEach((letter) => {
   letter.addEventListener("click", (evt) => {
-    console.log(selectWord);
-
-    const value = evt.target.innerText;
-    if (selectWord.includes(evt.target.innerText)) {
-     console.log(true); 
-    console.log(wordDisplay.innerText);
-  } else { evt.target.disabled = true;};
+  const underscores = wordDisplay.innerText;
+  const guessedLetter = evt.target.innerText;
+  const selectedWordArray = selectWord.split("");
+   const ltrContainer = document.createElement("div");
+  // const displayedWord =
+    
+      console.log(selectWord);
+      console.log(underscores);
+      console.log(guessedLetter);
+     console.log(selectedWordArray);
+     console.log(ltrContainer);
+    
+  if (selectWord.includes(evt.target.innerText)) {
+      console.log(true);
+      console.log(wordDisplay.innerText);
+  } else {
+    evt.target.disabled = true;
+  }
+//   
+ selectWord.split('').forEach((letter, index) => {
+  
+ if (letter === guessedLetter)
+{ltrContainer.innerText = guessedLetter;}
+ });
 
     //  const arrays = wordChoices[].filter((elements) => {
     //    return elements === value;
+
+    // const value = evt.target.innerText;
+    // wordDisplay.innerText = value;
+  });
+});
+
+
+// letters.forEach((letter) => {
+//   letter.addEventListener("click", (evt) => {
+//     const value = evt.target.innerText;
+//     const targetLetters = selectWord.split("");
+//     console.log(value);
+//     console.log(targetLetters);
+//   for (let i = 0; i < selectetWord.length; i++) {
+//     if (selectWord[i] === value) {
+
+//     };
+//   }
+
+    //  const arrays = wordChoices[].filter((elements) => {
+    //    return elements === value;
+
+    // const value = evt.target.innerText;
+    // wordDisplay.innerText = value;
+//   });
+// });
+
+
+// letters.forEach((letter) => {
+//   letter.addEventListener("click", (evt) => {
+//     console.log(selectWord);
+
+//     const value = evt.target.innerText;
+//     if (selectWord.includes(evt.target.innerText)) {
+//      console.log(true); 
+//     console.log(wordDisplay.innerText);
+//   } else { evt.target.disabled = true;};
+
+//      const arrays = wordChoices[].filter((elements) => {
+//        return elements === value;
     
 
-    // const value = evt.target.innerText;
-    // wordDisplay.innerText = value;
-  });
-});
+//     const value = evt.target.innerText;
+//     wordDisplay.innerText = value;
+//   });
+// });
 
-letters.forEach((letter) => {
-  letter.addEventListener("click", (evt) => {
+// letters.forEach((letter) => {
+//   letter.addEventListener("click", (evt) => {
   
+//     const underscores = wordDisplay.innerText;
+//     const guessedLetter = evt.target.innerText;
+//     const targetLetters = selectWord.split("");
+    
+//     console.log(guessedLetter);
+//     console.log(targetLetters);
+//     console.log(underscores);
 
-    const value = evt.target.innerText;
-    const targetLetters = selectWord.split("");
-    console.log(value);
-    console.log(targetLetters);
-
-
+//if the guessed letter is included in the array . update the div content of the 
    
    
   
@@ -227,8 +298,8 @@ letters.forEach((letter) => {
 
     // const value = evt.target.innerText;
     // wordDisplay.innerText = value;
-  });
-});
+//   });
+// });
 
 
 // handle select letter
@@ -257,6 +328,7 @@ init();
 
 function init(){
     getStarted();
+ 
 };
 
 
