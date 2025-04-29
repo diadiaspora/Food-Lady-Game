@@ -15,14 +15,29 @@
 
 
                                 /*----- constants -----*/
+const buttons = document.querySelectorAll(".keyboard");
+console.log(buttons);
 
 const letters = document.querySelectorAll(".letters");
 console.log(letters);
 
+
+
+const wordDisplay = document.querySelector(".placeholder");
+console.log(wordDisplay);
+
+//  wordDisplay.innerText = (ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6);
+
+
+const chooseWord = document.querySelector(".choose-word");
+console.log(chooseWord);
+
+
+
 const wordChoices = [
-    'burrito',
-    'muffins',
-    'popcorn',
+    'BURRITO',
+    'MUFFINS',
+    'POPCORN',
     'LASANGA',
     'ALMONDS',
     'HOTDOGS',
@@ -46,19 +61,20 @@ console.log(maxGuesses);
  let correctGuesses
  let wrongGuesses
  let gameOver 
+ let win
 
- let ltr0 = "_";
+//  let ltr0 = "_";
 
- let ltr1 = "_";
+//  let ltr1 = "_";
 
- let ltr2 = "_";
+//  let ltr2 = "_";
 
- let ltr3 = "_";
+//  let ltr3 = "_";
 
- let ltr4 = "_";
+//  let ltr4 = "_";
 
- let ltr5 = "_";
- let ltr6 = "_";
+//  let ltr5 = "_";
+//  let ltr6 = "_";
 
  
 
@@ -80,16 +96,7 @@ console.log(maxGuesses);
 // resetButton — a button to reset / restart the game.
 
 
-const buttons = document.querySelectorAll(".keyboard");
-console.log(buttons);
 
-const wordDisplay = document.querySelector(".placeholder");
-
-//  wordDisplay.innerText = (ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6);
-
-
-const chooseWord = document.querySelector(".choose-word");
-console.log(chooseWord);
 
 let selectWord = getRandomWord(wordChoices);
 console.log(selectWord);
@@ -124,40 +131,105 @@ selectWord = getRandomWord(wordChoices);
    })
 
    console.log(wordDisplay);
-//   wordDisplay.innerText = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
+
   console.log(selectWord.toUpperCase());
 };
+
+// function matchLetters() {
+//   letters.forEach((letter) => {
+//     const value = evt.target.innerText;
+//     const targetLetters = wordDisplay.innerText;
+//     console.log(value);
+//     console.log(targetLetters);
+//   });
+// }
+
+// This code sets up an event listener so that when someone clicks a button or element called chooseWord, it runs the function getStarted() to begin a game (likely Hangman or a word guessing game).
+
+// Step-by-step explanation of getStarted() function:
+// wordDisplay.replaceChildren()
+
+// This clears out anything currently displayed in the wordDisplay container — it's like wiping the screen clean to show a new word.
+
+// selectWord = getRandomWord(wordChoices);
+
+// This chooses a random word from a list called wordChoices and stores it in a variable called selectWord.
+
+// const selectedWordArray = selectWord.split('');
+
+// This splits the chosen word into an array of individual letters.
+// For example, "apple" becomes ["a", "p", "p", "l", "e"].
+
+// console.log(selectedWordArray);
+
+// This prints the array of letters to the console for debugging purposes.
+
+// Loop through each letter in the word:
+// selectedWordArray.forEach((ltr) => {
+//     ...
+// })
+// This runs a block of code for each letter in the word.
+
+// Inside the loop:
+
+// console.log(ltr);: shows each letter one by one in the console.
+
+// const ltrContainer = document.createElement("div");: creates a new empty div element.
+
+// ltrContainer.innerText = "_";: adds an underscore (“_”) to the div — this hides the actual letter, simulating a blank space the user will guess later.
+
+// wordDisplay.appendChild(ltrContainer);: adds the new underscore div to the screen inside the wordDisplay container.
+
+// console.log(wordDisplay);
+
+// Logs the entire wordDisplay element to the console — helpful for debugging.
+
+// console.log(selectWord.toUpperCase());
+
+// Prints the full selected word in uppercase in the console — also for debugging or testing.
+
 
 letters.forEach((letter) => {
   letter.addEventListener("click", (evt) => {
     console.log(selectWord);
-    ltr0 = selectWord[0];
-    ltr1 = selectWord[1];
-    ltr2 = selectWord[2];
-    ltr3 = selectWord[3];
-    ltr4 = selectWord[4];
-    ltr5 = selectWord[5];
-    ltr6 = selectWord[6];
 
-    array = ltr0 + ltr1 + ltr2 + ltr3 + ltr4 + ltr5 + ltr6;
-    
     const value = evt.target.innerText;
     if (selectWord.includes(evt.target.innerText)) {
      console.log(true); 
-     console.log(array);
-     console.log(wordDisplay.innerText);
+    console.log(wordDisplay.innerText);
+  } else { evt.target.disabled = true;};
 
     //  const arrays = wordChoices[].filter((elements) => {
     //    return elements === value;
-    //  });
     
-  };
-
 
     // const value = evt.target.innerText;
     // wordDisplay.innerText = value;
   });
 });
+
+letters.forEach((letter) => {
+  letter.addEventListener("click", (evt) => {
+  
+
+    const value = evt.target.innerText;
+    const targetLetters = selectWord.split("");
+    console.log(value);
+    console.log(targetLetters);
+
+
+   
+   
+  
+
+    //  const arrays = wordChoices[].filter((elements) => {
+    //    return elements === value;
+
+    // const value = evt.target.innerText;
+    // wordDisplay.innerText = value;
+  });
+});
+
 
 // handle select letter
 
