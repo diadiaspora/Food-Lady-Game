@@ -221,7 +221,7 @@ if (!gameOver) {
         gameOver = true;
         console.log("You win!");
         // Handle win display
-        headerText.innerText = "Congratulations, You Ate!";
+        headerText.innerText = "Congratulations, YOU ATE!";
         headerTwo.innerText = "Order Seconds!";
         chooseWord.innerText = "Play Again";
        
