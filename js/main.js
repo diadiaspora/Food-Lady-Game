@@ -15,7 +15,7 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-const buttons = document.querySelectorAll(".keyboard");
+
 
 const letters = document.querySelectorAll(".letters");
 
@@ -89,10 +89,11 @@ function getStarted() {
   gameOver = false;
 
   updateWordDisplay(); 
+  renderImages();
 
-  buttons.forEach((button) => {
-    button.disabled = false;
-    button.classList.remove("correct", "incorrect");
+  letters.forEach((letter) => {
+    letter.disabled = false;
+    letter.classList.remove("correct", "incorrect");
   });
 
   console.log("Secret Word:", selectWord);
@@ -100,8 +101,8 @@ function getStarted() {
 }
 
 
-buttons.forEach((button) => {
-  button.addEventListener("click", handleGuess);
+letters.forEach((letter) => {
+letter.addEventListener("click", handleGuess);
 });
 
 // buttons.forEach((button) => {
@@ -187,6 +188,7 @@ function handleGuess(event) {
 
 
 const guessedLetter = event.target.innerText;
+
 const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
 
 
@@ -209,19 +211,31 @@ const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
         gameOver = true;
         console.log("You win!");
         // Handle win display
+         letter.forEach((letter) => (letter.disabled = true));
       }
       event.target.classList.add("correct");
     }
   } else {
     if (!wrongGuesses.includes(guessedLetter)) {
-      wrongGuesses.push(wrongGuesses);
-       console.log("Maximum Guesses=", maxGuesses);
-      console.log("Wrong Guesses:", wrongGuesses.length);
-      console.log("Guesses Left =", guessesLeft);
-      // Update hangman drawing or remaining guesses count here
+      wrongGuesses.push(guessedLetter);
+      console.log("Wrong Guesses:", wrongGuesses);
+   
+  
+renderImages();
 
- 
-      event.target.classList.add("incorrect");
+    console.log("Maximum Guesses=", maxGuesses);
+    console.log("Wrong Guesses:", wrongGuesses.length);
+    console.log("Guesses Left =", guessesLeft);
+
+   event.target.classList.add("incorrect");
+      
+if (wrongGuesses.length >= maxGuesses) {
+        gameOver = true;
+        console.log("Game Over! The word was:", selectWord);
+        updateWordDisplay();
+        letters.forEach((letter) => (letter.disabled = true));
+
+      }
     }
   }
 }
@@ -233,13 +247,14 @@ function render(){
 }
 
 
-function renderImages(){
-foodImages.forEach((img, idx) => {
-img.style.visibity = idx <= wrongGuesses.length ? 'visible' : 'hidden';
-});
-};
+function renderImages() {
+  foodImages.forEach((img, idx) => {
+    // Hide images based on the index being less than the number of wrong guesses
+    img.style.visibility = idx < wrongGuesses.length ? "hidden" : "visible";
+  });
+}
 
-console.log(renderImages);
+
 
 
 
