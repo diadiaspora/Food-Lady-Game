@@ -23,7 +23,20 @@ const wordDisplay = document.querySelector(".placeholder");
 
 const chooseWord = document.querySelector(".choose-word");
 
-const dissapearingImages = document.querySelectorAll("dissapearing-image");
+const foodImages = document.querySelectorAll(".dissapearing-image");
+
+const img1 = document.getElementById("1");
+const img2 = document.getElementById("2");
+const img3 = document.getElementById("3");
+const img4 = document.getElementById("4");
+const img5 = document.getElementById("5");
+const img6 = document.getElementById("6");
+const img7 = document.getElementById("7");
+const img8 = document.getElementById("8");
+const img9 = document.getElementById("9");
+const img0 = document.getElementById("0");
+
+
 
 const wordChoices = [
     'BURRITO',
@@ -48,9 +61,11 @@ const wordChoices = [
  let gameOver = false;
  let maxGuesses = 10
  let guessesLeft
+ let usedGuesses
 
 /*----------------------------- Cashed Elements -----------------------------*/
 
+const food = document.querySelectorAll(".dissapearing-image");
 
 selectWord = getRandomWord(wordChoices);
 
@@ -89,7 +104,10 @@ buttons.forEach((button) => {
   button.addEventListener("click", handleGuess);
 });
 
-
+// buttons.forEach((button) => {
+//   button.addEventListener("click", gameOverNotification)
+//   gameOverNotification();
+// });
 
 
  chooseWord.addEventListener("click", getStarted);
@@ -149,6 +167,7 @@ if (selectWord.includes(evt.target.innerText)) {
     
     updateWordDisplay();
     getStarted();
+    render();
   }
 
 
@@ -165,20 +184,18 @@ if (selectWord.includes(evt.target.innerText)) {
 
 
 function handleGuess(event) {
-//   if (gameOver = false) return;
 
-// 
-// 
-// console.log("Wrong Guesses:", wrongGuesses);
- const guessedLetter = event.target.innerText;
+
+const guessedLetter = event.target.innerText;
 const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
-//   event.target.disabled = true;
+
 
   if (selectWord.includes(guessedLetter)) {
     console.log('Maximum Guesses=', maxGuesses);
     usedGuesses++;
     console.log("Correct Guesses =", usedGuesses);
-
+    
+   
     if (!correctGuesses.includes(guessedLetter)) {
       correctGuesses.push(guessedLetter);
       for (let i = 0; i < selectWord.length; i++) {
@@ -203,23 +220,26 @@ const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
       console.log("Guesses Left =", guessesLeft);
       // Update hangman drawing or remaining guesses count here
 
-      if (wrongGuesses.length >= maxGuesses) {
-        gameOver = false;
-        console.log("Keep Going", selectWord);
-        updateWordDisplay(); // Show the underscores as they were
-        // Optionally reveal the word:
-        // wordDisplay.innerText = selectWord.split('').join(' ');
-      }
+ 
       event.target.classList.add("incorrect");
     }
   }
 }
 
-function removeImages(){
 
- console.log(wrongGuesses)
+
+function render(){
+  renderImages()
+}
+
+
+function renderImages(){
+foodImages.forEach((img, idx) => {
+img.style.visibity = idx <= wrongGuesses.length ? 'visible' : 'hidden';
+});
 };
 
+console.log(renderImages);
 
 
 

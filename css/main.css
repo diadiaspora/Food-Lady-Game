@@ -178,27 +178,27 @@ p {
 
 } */
 
-#mac {
+.mac {
   position: relative;
   left: -440px;
   top: 0px;
   z-index: 0;
 }
 
-#fries {
+.fries {
   position: relative;
   left: -300px;
   top: 120px;
   z-index: 0;
 }
-#salad {
-  position: absolute;
-  left: 1300px;
-  top: 500px;
+.salad {
+  position: relative;
+  left: 250px;
+  top: 100px;
   z-index: 0;
 }
 
-#peach {
+.peach {
   position: absolute;
   left: 1350px;
   top: 1100px;
@@ -208,7 +208,7 @@ p {
     margin-top: -300px;
     margin-left: 380px;
 }
-#kabob {
+.kabob {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -220,13 +220,13 @@ p {
     margin-left: -380px;
 
 }
-#tacos {
+.tacos {
   width: 320px;
   margin-top: -100x;
   margin-left: 50px;
 }
 
-#slaw {
+.slawdiv {
 width: 200px;
 margin-left: -35px;
 margin-top: -40px;
@@ -240,10 +240,10 @@ margin-top: -40px;
   margin-bottom: 0px;
 }
 
-#avoc {
+.avoc {
     margin-left: 100px;
 }
-#pom {
+.pom {
     width: 200px;
     margin-top: -200px;
 }
