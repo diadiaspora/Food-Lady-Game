@@ -37,6 +37,7 @@ const wordChoices = [
     'CUPCAKE',
     'COCONUT',
 ];
+
 /*-------------------------------- Variables --------------------------------*/
 // State Variables
 
@@ -45,14 +46,17 @@ const wordChoices = [
  let correctGuesses = [];
  let wrongGuesses = [];
  let gameOver = false;
- let maxGuesses = dissapearingImages.length; 
+ let maxGuesses = 10
+ let guessesLeft
 
 /*----------------------------- Cashed Elements -----------------------------*/
 
 
 selectWord = getRandomWord(wordChoices);
-console.log(selectWord);
 
+
+wrongGuesses = [1, 2, 3, 3, 4, 5, 6, 7, 8,9, 10];
+guessesLeft = maxGuesses - wrongGuesses.length;
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -66,7 +70,10 @@ function getStarted() {
   displayedLettersArray = Array(selectWord.length).fill("_");
   correctGuesses = [];
   wrongGuesses = [];
+  usedGuesses = 0;
   gameOver = false;
+
+  updateWordDisplay(); 
 
   buttons.forEach((button) => {
     button.disabled = false;
@@ -82,33 +89,54 @@ buttons.forEach((button) => {
   button.addEventListener("click", handleGuess);
 });
 
+
+
+
  chooseWord.addEventListener("click", getStarted);
+
+
+
 
 letters.forEach((letter) => {
   letter.addEventListener("click", (evt) => {
+
+
+
     const underscores = wordDisplay.innerText;
     const guessedLetter = evt.target.innerText;
     const selectedWordArray = selectWord.split("");
     const ltrContainer = document.createElement("div");
 
-    console.log(selectWord);
-    console.log(underscores);
-    console.log(guessedLetter);
-    console.log(selectedWordArray);
-    console.log(ltrContainer);
+  
 
-    if (selectWord.includes(evt.target.innerText)) {
-      console.log(true);
-      console.log(wordDisplay.innerText);
-    } else {
-      evt.target.disabled = true;
+if (selectWord.includes(evt.target.innerText)) {
+  const underscores = wordDisplay.innerText;
+  const guessedLetter = evt.target.innerText;
+  const selectedWordArray = selectWord.split("");
+  const ltrContainer = document.createElement("div");
+
+  
+
+  if (selectWord.includes(evt.target.innerText)) {
+   
+  } else {
+    evt.target.disabled = true;
+  }
+  //
+  selectWord.split("").forEach((letter, index) => {
+    if (letter === guessedLetter) {
+      ltrContainer.innerText = guessedLetter;
     }
-    //
-    selectWord.split("").forEach((letter, index) => {
-      if (letter === guessedLetter) {
-        ltrContainer.innerText = guessedLetter;
-      }
-    });
+  });
+} else {
+  evt.target.disabled = true;
+}
+ selectWord.split("").forEach((letter, index) => {
+   if (letter === guessedLetter) {
+     ltrContainer.innerText = guessedLetter;
+   }
+ });
+
   });
 });
 
@@ -133,13 +161,24 @@ letters.forEach((letter) => {
    wordDisplay.innerText = displayedLettersArray.join(" ");
  }
 
-function handleGuess(event) {
-  if (gameOver) return;
 
-  const guessedLetter = event.target.innerText.toUpperCase();
-  event.target.disabled = true;
+
+
+function handleGuess(event) {
+//   if (gameOver = false) return;
+
+// 
+// 
+// console.log("Wrong Guesses:", wrongGuesses);
+ const guessedLetter = event.target.innerText;
+const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
+//   event.target.disabled = true;
 
   if (selectWord.includes(guessedLetter)) {
+    console.log('Maximum Guesses=', maxGuesses);
+    usedGuesses++;
+    console.log("Correct Guesses =", usedGuesses);
+
     if (!correctGuesses.includes(guessedLetter)) {
       correctGuesses.push(guessedLetter);
       for (let i = 0; i < selectWord.length; i++) {
@@ -158,13 +197,15 @@ function handleGuess(event) {
     }
   } else {
     if (!wrongGuesses.includes(guessedLetter)) {
-      wrongGuesses.push(guessedLetter);
-      console.log("Wrong Guesses:", wrongGuesses);
+      wrongGuesses.push(wrongGuesses);
+       console.log("Maximum Guesses=", maxGuesses);
+      console.log("Wrong Guesses:", wrongGuesses.length);
+      console.log("Guesses Left =", guessesLeft);
       // Update hangman drawing or remaining guesses count here
 
       if (wrongGuesses.length >= maxGuesses) {
-        gameOver = true;
-        console.log("Game Over! The word was:", selectWord);
+        gameOver = false;
+        console.log("Keep Going", selectWord);
         updateWordDisplay(); // Show the underscores as they were
         // Optionally reveal the word:
         // wordDisplay.innerText = selectWord.split('').join(' ');
@@ -173,6 +214,12 @@ function handleGuess(event) {
     }
   }
 }
+
+function removeImages(){
+
+ console.log(wrongGuesses)
+};
+
 
 
 
