@@ -25,16 +25,15 @@ const chooseWord = document.querySelector(".choose-word");
 
 const foodImages = document.querySelectorAll(".dissapearing-image");
 
-const img1 = document.getElementById("1");
-const img2 = document.getElementById("2");
-const img3 = document.getElementById("3");
-const img4 = document.getElementById("4");
-const img5 = document.getElementById("5");
-const img6 = document.getElementById("6");
-const img7 = document.getElementById("7");
-const img8 = document.getElementById("8");
-const img9 = document.getElementById("9");
-const img0 = document.getElementById("0");
+const headerText = document.querySelector("main h2:first-child");
+
+const headerTwo = document.querySelector(".h3");
+console.log(headerTwo.innerText);
+
+const imageSection = document.querySelector(".image-section"); 
+const winGif = document.querySelector(".win-gif"); 
+const loseImage = document.querySelector(".lose-image"); 
+
 
 
 
@@ -70,7 +69,7 @@ const food = document.querySelectorAll(".dissapearing-image");
 selectWord = getRandomWord(wordChoices);
 
 
-wrongGuesses = [1, 2, 3, 3, 4, 5, 6, 7, 8,9, 10];
+
 guessesLeft = maxGuesses - wrongGuesses.length;
 
 /*-------------------------------- Functions --------------------------------*/
@@ -90,6 +89,14 @@ function getStarted() {
 
   updateWordDisplay(); 
   renderImages();
+
+  headerText.innerText = "What Should You Order Next?";
+  headerTwo.innerText = "Take a Guess!";
+   chooseWord.innerText = "Choose a Different Word";
+
+   imageSection.style.display = "block"; 
+   winGif.style.display = "none";
+   loseImage.style.display = "none";
 
   letters.forEach((letter) => {
     letter.disabled = false;
@@ -191,13 +198,16 @@ const guessedLetter = event.target.innerText;
 
 const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
 
+if (!gameOver) {
+  event.target.disabled = true;
 
   if (selectWord.includes(guessedLetter)) {
-    console.log('Maximum Guesses=', maxGuesses);
+    console.log("Maximum Guesses=", maxGuesses);
     usedGuesses++;
     console.log("Correct Guesses =", usedGuesses);
-    
-   
+    headerText.innerText = "Great Guess, Keep Going!";
+    headerTwo.innerText = `You have ${guessesLeft} guesses left`;
+
     if (!correctGuesses.includes(guessedLetter)) {
       correctGuesses.push(guessedLetter);
       for (let i = 0; i < selectWord.length; i++) {
@@ -211,35 +221,50 @@ const guessesLeft = maxGuesses - wrongGuesses.length -1 ;
         gameOver = true;
         console.log("You win!");
         // Handle win display
-         letter.forEach((letter) => (letter.disabled = true));
+        headerText.innerText = "Congratulations, You Ate!";
+        headerTwo.innerText = "Order Seconds!";
+        chooseWord.innerText = "Play Again";
+       
+        letters.forEach((letter) => (letter.disabled = true));
+
+         imageSection.style.display = "none";
+         winGif.style.display = "block";
+         loseImage.style.display = "none";
       }
       event.target.classList.add("correct");
     }
   } else {
     if (!wrongGuesses.includes(guessedLetter)) {
       wrongGuesses.push(guessedLetter);
+      headerText.innerText = "Wrong, Try Again";
+      headerTwo.innerText = `You have ${guessesLeft} guesses left`;
       console.log("Wrong Guesses:", wrongGuesses);
-   
-  
-renderImages();
 
-    console.log("Maximum Guesses=", maxGuesses);
-    console.log("Wrong Guesses:", wrongGuesses.length);
-    console.log("Guesses Left =", guessesLeft);
+      renderImages();
 
-   event.target.classList.add("incorrect");
-      
-if (wrongGuesses.length >= maxGuesses) {
+      console.log("Maximum Guesses=", maxGuesses);
+      console.log("Wrong Guesses:", wrongGuesses.length);
+      console.log("Guesses Left =", guessesLeft);
+
+      event.target.classList.add("incorrect");
+
+      if (wrongGuesses.length >= maxGuesses) {
         gameOver = true;
         console.log("Game Over! The word was:", selectWord);
         updateWordDisplay();
+        headerText.innerText = "Game Over!";
+        headerTwo.innerText = "";
+        chooseWord.innerText = "Play Again";
         letters.forEach((letter) => (letter.disabled = true));
 
+          imageSection.style.display = "none";
+          winGif.style.display = "none";
+          loseImage.style.display = "block";
       }
     }
   }
 }
-
+}
 
 
 function render(){

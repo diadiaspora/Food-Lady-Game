@@ -78,7 +78,7 @@ aside {
   background-position: center;
   border-radius: 20px;
   margin-right: 20px;
-  margin-left: 40px;
+  margin-left: 0px;
   margin-top: 40px;
   height: 1000px;
   width: 1200px;
@@ -90,6 +90,7 @@ main {
   margin-left: 20px;
   margin-top: 40px;
   height: 1000px;
+  padding: 20px;
 }
 
 h1 {
@@ -106,6 +107,7 @@ h2 {
   margin-top: 40px;
   margin-left: 40px;
   text-align: center;
+  font-size: 46px;
 }
 
 .subtitle {
@@ -128,8 +130,10 @@ img {
   width: 250px;
 }
 h3 {
+    color: #fbcbb7;
   font-size: 100px;
   text-align: center;
+  font-size: 32px;
 }
 
 p {
@@ -157,10 +161,14 @@ p {
 }
 
 .choose-word {
-  font-size: 24px;
+  font-size: 28px;
+    font-family: "Cal Sans", sans-serif;
   border-radius: 20px;
   margin: 30px;
   padding: 16px;
+  color: #023047;
+  background-color: #fbcbb7;
+  
 }
 
 .play-again {
@@ -255,4 +263,46 @@ margin-top: -40px;
 .foodlady {
     margin-top: -65px;
   margin-left: -110px;
+}
+
+.win-gif {
+     display: block;
+    width: 100%;
+   margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+   margin-bottom: auto;
+
+}
+.win {
+    display: block;
+    width: 80%;
+    border-radius: 20px;
+   margin-top: 150px;
+   margin-bottom: auto;
+    margin-left: auto;
+  margin-right: auto;
+}
+.lose-gif {
+     display: block;
+    width: 100%;
+   margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+   margin-bottom: auto;
+
+}
+.lose {
+    display: block;
+    width: 80%;
+    border-radius: 20px;
+   margin-top: 150px;
+   margin-bottom: auto;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+.messages {
+    margin-top: 60px;
+    height: 200px;
 }
