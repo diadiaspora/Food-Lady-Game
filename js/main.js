@@ -1,4 +1,4 @@
-                                    /*----- psuedocode -----*/
+origin                                    /*----- psuedocode -----*/
 /* 
 - choose random word for game 
 - Display empty word placeholder that needs to be guessed
