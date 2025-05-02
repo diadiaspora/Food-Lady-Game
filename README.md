@@ -5,8 +5,8 @@
 </div>
 
 
-# Food LADY Game
-## [https://diadiaspora.github.io/Food-Lady-Game/](https://diadiaspora.github.io/Food-Lady-Game/)
+# FOOD LADY Game
+## [Click here to play FOOD LADY](https://diadiaspora.github.io/Food-Lady-Game/)
 
 
 ### Dia Diaspora | 2025
