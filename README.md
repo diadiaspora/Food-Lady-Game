@@ -36,4 +36,3 @@ __Food Lady__ is a word guessing game designed with a retro diner theme. The use
  ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
  ![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
  ![Materialize CSS](https://img.shields.io/badge/-Materialize_CSS-05122A?style=flat&logo=materialdesign)
-git 
