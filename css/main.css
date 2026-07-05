@@ -414,6 +414,10 @@ p {
   width: 50px;
 }
 
+.placeholder {
+  margin-top: -15px;
+}
+
 /* .messages {
   margin-bottom: 0px;
 } */
@@ -466,6 +470,7 @@ p {
 
   width: 50px;
 }
+
 
 /* .messages {
   margin-bottom: 0px;
