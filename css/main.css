@@ -411,7 +411,7 @@ p {
 
     .logo img {
 
-  width: 50px;
+  visibility: hidden;
 }
 
 .placeholder {
@@ -446,6 +446,18 @@ p {
     width: 100%;
   }
 
+  .kabob-div {
+  margin-top: 30px;
+  margin-left: 380px;
+}
+.kabob {
+  position: absolute;
+
+  margin-left: 35%;
+  width: 120%;
+  margin-top: 43%;
+}
+
   /* prevent food overflow chaos */
   .left-content img {
     max-width: 22%;
@@ -465,12 +477,56 @@ p {
  .header {
     width: 80%;
   }
+    .logo img {
 
-  .logo img {
-
-  width: 50px;
+  visibility: hidden;
 }
 
+.salad {
+  position: absolute;
+  left: 5%;
+  top: 80%;
+  width: 28%;
+  z-index: 0;
+}
+
+.peach {
+  position: absolute;
+  left: 75%;
+  top: 80%;
+  width: 21%;
+  z-index: 0;
+}
+
+.chic {
+  position: absolute;
+  width: 100%;
+  margin-top: 0%;
+  margin-left: 50%;
+  margin-bottom: 18%;
+}
+
+.chicdiv {
+  position: absolute;
+  width: 120%;
+  margin-top: 48%;
+  margin-left: 0%;
+  margin-bottom: 18%;
+}
+
+.tacos {
+  position: absolute;
+  width: 250%;
+  margin-top: 20%;
+  margin-left: 1%;
+}
+
+.slawdiv {
+  position: absolute;
+  width: 80%;
+  margin-left: 15%;
+  margin-top: 45%;
+}
 
 /* .messages {
   margin-bottom: 0px;
