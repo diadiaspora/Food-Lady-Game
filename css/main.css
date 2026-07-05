@@ -411,12 +411,12 @@ p {
 
     .logo img {
 
-  width: 24px;
+  width: 50px;
 }
 
-.messages {
+/* .messages {
   margin-bottom: 0px;
-}
+} */
 }
 
 @media (max-width: 600px) {
@@ -464,11 +464,11 @@ p {
 
   .logo img {
 
-  width: 24px;
+  width: 50px;
 }
 
-.messages {
+/* .messages {
   margin-bottom: 0px;
-}
+} */
   
 }
