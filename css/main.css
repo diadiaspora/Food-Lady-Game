@@ -209,6 +209,7 @@ p {
   font-size: 50px;
   justify-content: center;
   color: #fff;
+   font-family: "Cal Sans", sans-serif;
 }
 
 .buttons {
@@ -399,6 +400,14 @@ p {
   aside {
     height: auto;
   }
+
+   .placeholder {
+    margin-bottom: 16px;
+  }
+
+  .header {
+    width: 70%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -433,5 +442,15 @@ p {
     width: 32px;
     height: 32px;
     font-size: 18px;
+    color: black;
+     font-family: "Cal Sans", sans-serif;
   }
+
+  .placeholder {
+    margin-bottom: 16px;
+  }
+ .header {
+    width: 80%;
+  }
+  
 }
