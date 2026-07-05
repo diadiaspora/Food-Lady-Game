@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cherry+Cream+Soda&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: lightgray;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.gameboard {
+  width: min(1400px, 95vw);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.left-content {
+  background: #fbcbb7;
+  border-radius: 20px;
+  padding: 10px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 70vh;
+}
+
+.plate-area {
+  width: 85%;
+  aspect-ratio: 1;
+  position: relative;
+  background: url("https://i.ibb.co/GQ60MwWD/plate.png") center/contain
+    no-repeat;
+
+    
+}
+
+header {
+  height: 100px;
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #fff;
+  background-size: 100px 100px;
+  background-position:
+    0 0,
+    50px 50px;
+  background-image:
+    linear-gradient(
+      45deg,
+      #023047 25%,
+      transparent 25%,
+      transparent 25%,
+      #023047 75%,
+      #023047
+    ),
+    linear-gradient(
+      45deg,
+      #023047 25%,
+      transparent 25%,
+      transparent 75%,
+      #023047 75%,
+      #023047
+    );
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  margin-bottom: -40px;
+}
+
+.header {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #023047;
+  border-radius: 20px;
+}
+
+.foodlady {
+  border-radius: 20px;
+  color: #fbcbb7;
+  margin: 20px;
+  padding: 20px;
+  width: 800px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+}
+aside {
+  background-repeat: no-repeat;
+  background-color: #fbcbb7;
+  background-size: contain;
+  background-position: center;
+  border-radius: 20px;
+  margin-top: 0px;
+  height: 70vh;
+
+  width: 100%;
+  position: relative;
+}
+
+.image-section {
+  width: 100%;
+  margin-top: 15px;
+}
+
+main {
+  background-color: #023047;
+  border-radius: 20px;
+  margin-top: 0px;
+  height: 70vh;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 0px;
+   font-family: "Cal Sans", sans-serif;
+}
+
+.sub-title {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  color: #fbcbb7;
+  margin-top: 10px;
+  font-family: "Cal Sans", sans-serif;
+  text-align: center;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.letters {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  border-radius: 20px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+img {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+}
+
+h3 {
+  color: #fbcbb7;
+  margin-top: -10px;
+  text-align: center;
+  font-size: 20px;
+    font-family: "Cal Sans", sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0px;
+  font-family: "Cal Sans", sans-serif;
+}
+
+.gif {
+  width: 20%;
+  border-radius: 20px;
+}
+
+.placeholder {
+  display: flex;
+  gap: 5px;
+  font-size: 50px;
+  justify-content: center;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.choose-word {
+  font-size: 18px;
+  font-family: "Cal Sans", sans-serif;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  color: #023047;
+  background-color: #fbcbb7;
+}
+
+.play-again {
+  font-size: 24px;
+  border-radius: 20px;
+  margin: 30px;
+  padding: 16px;
+}
+/* .checkered3 { */
+/* background-color: #FFF;
+    background-size:  100px 100px;
+    background-position: 0 0, 50px 50px;
+    background-image: linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047),
+        linear-gradient(45deg, #023047 25%, transparent 25%, transparent 75%, #023047 75%, #023047);
+
+} */
+
+.mac {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  width: 28%;
+  z-index: 0;
+}
+
+.fries {
+  position: absolute;
+  left: 70%;
+  top: 0%;
+  width: 28%;
+  z-index: 0;
+}
+.salad {
+  position: absolute;
+  left: -10%;
+  top: 60%;
+  width: 28%;
+  z-index: 0;
+}
+
+.peach {
+  position: absolute;
+  left: 85%;
+  top: 65%;
+  width: 21%;
+  z-index: 0;
+}
+.kabob-div {
+  margin-top: 30px;
+  margin-left: 380px;
+}
+.kabob {
+  position: absolute;
+
+  margin-left: 15%;
+  width: 30%;
+  margin-top: 43%;
+}
+.tacos-div {
+  margin-top: 0%;
+  margin-left: 0%;
+}
+.tacos {
+  position: absolute;
+  width: 40%;
+  margin-top: 20%;
+  margin-left: 1%;
+}
+
+.slawdiv {
+  position: absolute;
+  width: 22%;
+  margin-left: 35%;
+  margin-top: 55%;
+}
+
+.chicdiv {
+  position: absolute;
+  width: 30%;
+  margin-top: 48%;
+  margin-left: 0%;
+  margin-bottom: 18%;
+}
+
+.avoc {
+  position: absolute;
+  margin-left: -20%;
+  margin-top: 25%;
+  width: 25%;
+}
+.pom {
+  position: absolute;
+  width: 20%;
+  margin-top: 28%;
+  margin-left: -35%;
+}
+
+.logo img {
+  margin-left: 0px;
+  width: 80px;
+  height: auto;
+}
+
+.win-gif {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.win {
+  display: block;
+  width: 80%;
+  border-radius: 20px;
+  margin-top: 150px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lose-gif {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.lose {
+  display: block;
+  width: 80%;
+  border-radius: 20px;
+  margin-top: 150px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.messages {
+  margin-top: 10px;
+  margin-bottom: 20%;
+  height: 20px;
+}
