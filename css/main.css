@@ -462,5 +462,9 @@ p {
 
   width: 24px;
 }
+
+.messages {
+  margin-bottom: -30px;
+}
   
 }
