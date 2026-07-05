@@ -410,8 +410,7 @@ p {
   }
 
     .logo img {
-
-  visibility: hidden;
+  display: none;
 }
 
 .placeholder {
@@ -422,6 +421,7 @@ p {
   margin-bottom: 0px;
 } */
 }
+
 
 @media (max-width: 600px) {
   .gameboard {
@@ -477,9 +477,10 @@ p {
  .header {
     width: 80%;
   }
+
     .logo img {
 
-  visibility: hidden;
+ display: none;
 }
 
 .salad {
