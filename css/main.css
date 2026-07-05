@@ -12,6 +12,11 @@ body {
   justify-content: center;
 }
 
+.win-gif,
+.lose-image {
+  display: none;
+}
+
 header {
   grid-area: header;
 }

@@ -63,7 +63,7 @@ const wordChoices = [
  let usedGuesses
 
 /*----------------------------- Cashed Elements -----------------------------*/
-
+const plateArea = document.querySelector(".plate-area");
 const food = document.querySelectorAll(".dissapearing-image");
 
 selectWord = getRandomWord(wordChoices);
@@ -94,7 +94,7 @@ function getStarted() {
   headerTwo.innerText = "Take a Guess!";
    chooseWord.innerText = "Choose a Different Word";
 
-   imageSection.style.display = "block"; 
+  plateArea.style.display = "block";
    winGif.style.display = "none";
    loseImage.style.display = "none";
 
@@ -227,7 +227,7 @@ if (!gameOver) {
        
         letters.forEach((letter) => (letter.disabled = true));
 
-         imageSection.style.display = "none";
+         plateArea.style.display = "none";
          winGif.style.display = "block";
          loseImage.style.display = "none";
       }
@@ -257,7 +257,7 @@ if (!gameOver) {
         chooseWord.innerText = "Play Again";
         letters.forEach((letter) => (letter.disabled = true));
 
-          imageSection.style.display = "none";
+          plateArea.style.display = "none";
           winGif.style.display = "none";
           loseImage.style.display = "block";
       }
