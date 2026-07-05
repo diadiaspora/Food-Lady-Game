@@ -408,6 +408,11 @@ p {
   .header {
     width: 70%;
   }
+
+    .logo img {
+
+  width: 24px;
+}
 }
 
 @media (max-width: 600px) {
@@ -455,7 +460,7 @@ p {
 
   .logo img {
 
-  width: 80%;
+  width: 24px;
 }
   
 }
