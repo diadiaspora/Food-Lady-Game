@@ -413,6 +413,10 @@ p {
 
   width: 24px;
 }
+
+.messages {
+  margin-bottom: -60px;
+}
 }
 
 @media (max-width: 600px) {
@@ -464,7 +468,7 @@ p {
 }
 
 .messages {
-  margin-bottom: -100px;
+  margin-bottom: -40px;
 }
   
 }
